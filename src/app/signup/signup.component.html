@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSignup()" [formGroup]="form" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput formControlName="email" type="email" placeholder="E-Mail">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="password" formControlName="password" matInput placeholder="Password" >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="name" type="text" placeholder="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="fname" type="text" placeholder="Family name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="adress" type="text" placeholder="Adress">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select formControlName="role">
+        <mat-option disabled="true" value="null">---</mat-option>
+        <mat-option value="Admin">Admin</mat-option>
+        <mat-option value="Owner">Owner</mat-option>
+        <mat-option value="Client">Client</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Signup</button>
+  </form>
+</mat-card>

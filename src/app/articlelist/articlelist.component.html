@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>article </h2>
+  <input type="text" [(ngModel)]="name" (input)="search()" placeholder="search by name">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name </th>
+        <th>Couleur</th>
+        <th>Taille</th>
+        <th>Quantity</th>
+        <th>Unit price</th>
+        <th>image</th>
+        <th>Action </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let article of _articlelist | paginate: { id: 'listing_pagination',
+        itemsPerPage: 3,
+        currentPage: page,
+        totalItems: total }">
+        <td>{{article.nameArticle}}</td>
+        <td>{{article.couleur}}</td>
+        <td>{{article.taille}}</td>
+        <td>{{article.qte}}</td>
+        <td>{{article.prix}}</td>
+        <td><img src='assets/images/{{article.urlimage}}' width="150" height="160"></td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="Delete_article(article)">Delete</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" (click)="updatearticle(article)">Edit</button>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+  
+  <div>
+    <pagination-controls id="listing_pagination" maxSize="2" directionLinks="true" (pageChange)="page = $event">
+    </pagination-controls>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="facture()">get facture </button>&nbsp;&nbsp;
+  <button type="button" class="btn btn-success" (click)="add_aritcle()">add new article</button>
+</div> 

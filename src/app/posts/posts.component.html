@@ -1,0 +1,46 @@
+<div class="container">
+    <h2>Posts </h2>
+    <form #addpostfrom="ngForm" (ngSubmit)="addpost()">
+        <div class="form-groupe">
+ <input type="text" class=form-control required [(ngModel)]="post.textPost" name="textPost"
+                placeholder="add post here !! " >
+        </div>
+        <button type="submit" class="btn btn-success">submit</button>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>post </th>
+                <th>retact</th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of _postlist">
+              <td  #elseBlock>{{post.textPost}}</td>
+                
+                <td>
+                    <p>{{post.like}}</p><button (click)=like(post)>like</button>
+                    <p>{{post.dislike}}</p><button (click)=dislike(post)>dislike</button> 
+                </td>
+                <td>
+                    <div *ngIf ="id== post.userId">
+                        <button type="button" class="btn btn-primary" (click)="update_Post(post); edit=false">Edit</button>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-danger" (click)="Delete_Post(post)" >Delete</button>
+                   
+                </div>
+                </td>
+
+            </tr>
+              <div *ngIf ="edit==false; else elseBlock">
+                <form (submit)="onSubmit()">
+                    <input [(ngModel)]="newtextPost"  name ="newtextPost">
+                    <button type="submit" (click) =" save() ; edit=true"  >save</button>
+                    </form>
+                </div>
+
+        </tbody>
+    </table>
+    
+
+</div>

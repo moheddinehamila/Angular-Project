@@ -1,0 +1,45 @@
+
+<div class="container">
+    <form #adduserfrom="ngForm" (ngSubmit)="addarticlefromsubmit()">
+
+
+
+
+        <div class="form-groupe">
+            <label for="name">name: </label>
+            <input type="text" class=form-control required [(ngModel)]="article.nameArticle" name="name">
+        </div>
+        <div class="form-groupe">
+            <label for="couleur">couleur: </label>
+            <input type="text" class=form-control required [(ngModel)]="article.couleur" name="couleur">
+        </div>
+
+        <div class="form-groupe">
+            <label for="taille">taille: </label>
+            <input type="text" class=form-control required [(ngModel)]="article.taille" name="taille">
+        </div>
+
+        <div class="form-groupe">
+            <label for="qte">qte: </label>
+            <input type="text" class=form-control required [(ngModel)]="article.qte" name="qte">
+        </div>
+        <div class="form-groupe">
+            <label for="prix">prix: </label>
+            <input type="text" class=form-control required [(ngModel)]="article.prix" name="prix">
+        </div>
+
+        <div class="container row">
+            <div class="col-md-6">
+                <input type="file" (change)="onFileChanged($event)">
+
+            </div>
+            <div class="col-md-6">
+                <input type="button" (click)="onUpload()" value="upload">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">submit</button>
+        <button type="submit" class="btn btn-danger" (click)="back()">back </button>
+    </form>
+    
+</div>

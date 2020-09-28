@@ -1,0 +1,36 @@
+
+<div class="container">
+    <h2>Update article 
+    </h2> 
+<form #adduserfrom="ngForm" (ngSubmit)="updatearticlefromsubmit()">
+    
+  
+
+
+    <div class="form-groupe">
+    <label for="name">name: </label>
+    <input type="text" class=form-control required [(ngModel)]="article.nameArticle" name ="name">
+    </div>
+    <div class="form-groupe">
+        <label for="couleur">couleur: </label>
+        <input type="text" class=form-control required [(ngModel)]="article.couleur" name ="couleur">
+    </div>
+
+    <div class="form-groupe">
+        <label for="taille">taille: </label>
+        <input type="text" class=form-control required [(ngModel)]="article.taille" name ="taille">
+    </div>
+
+    <div class="form-groupe">
+        <label for="qte">qte: </label>
+        <input type="text" class=form-control required [(ngModel)]="article.qte" name ="qte">
+    </div>
+    <div class="form-groupe">
+        <label for="prix">prix: </label>
+        <input type="text" class=form-control required [(ngModel)]="article.prix" name ="prix">
+    </div>
+
+<button type="submit" class="btn btn-success">update</button>
+<button type="submit" class="btn btn-danger" (click)="back()">back </button>
+</form>
+</div>
